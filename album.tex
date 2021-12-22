@@ -1,0 +1,103 @@
+% Latex for Photo Album
+% Adapted from http://redskiesatnight.com/books/pod/latex-templates-for-pod-publishing-with-blurb-com/
+% Adapted from Richard Hill http://www.retu.be/post/how_to_generate_a_blurb-compliant_pdf_photo_album_with_python_and_latex.html
+% Matthieu Valleton https://seos.fr
+
+\nonstopmode
+\documentclass[10pt,final,openany]{book}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{afterpage}
+\usepackage{fontspec}
+\usepackage[cmyk]{xcolor}
+\usepackage{grffile}
+\usepackage{sprint24-album}
+%\usepackage{showframe}
+
+\IfFileExists{sprint24-albm.tex}{\input{sprint24-album}}
+
+% CMYK deep black (100% black + a little bit of the other colours as well)
+\definecolor{pitchblack}{cmyk}{0.3,0.3,0,1}
+
+\usepackage[paperwidth=20cm, paperheight=20cm,
+            bindingoffset=0mm,
+            total={19cm,19cm},
+            twoside, includeall, nomarginpar,
+            ignorehead=false, ignorefoot=false, ignoremp=false, noheadfoot=true,
+            vcentering, hcentering]{geometry}
+
+\usepackage[width=24cm,height=24cm,
+	cam,
+	pdftex,
+	center]{crop}
+
+\setmainfont{Segoe UI}
+
+\color{white}
+
+\captionsetup[figure]{labelformat=empty}
+
+\setlength{\footnotesep}{0pt}
+
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+
+\begin{document}
+
+\setlength{\parindent}{0in}
+
+\setlength{\parskip}{1em}
+
+\raggedright
+
+\pagecolor{pitchblack}
+\pagestyle{empty}
+
+% Première de couverture
+\vspace*{\stretch{1}}
+
+\begin{figure}[ht!]
+\centering
+{
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{2pt}
+\fbox{\includegraphics[height=15cm,width=15cm,keepaspectratio]{\FrontCoverImage}}
+}
+\caption{\Huge \FrontCoverTitle}
+\end{figure}
+
+\vspace{\stretch{1}}
+
+% Deuxième de couverture (vide)
+\newpage
+\pagecolor{white}
+\vspace{\baselineskip}
+\mbox{}
+
+% Quatrième de couverture
+\newpage
+\pagecolor{pitchblack}
+\vspace*{\stretch{1}}
+\begin{center}{\huge \BackCoverTitle}
+\end{center}
+
+% Troisième de couverture (vide)
+\newpage
+\pagecolor{white}
+\vspace{\baselineskip}
+\mbox{}
+
+\newpage
+\pagecolor{pitchblack}
+\addtocounter{page}{-4}
+
+% Images latex
+\input{photos.tex}
+
+% Deuxième de couverture (vide)
+\newpage
+\pagecolor{pitchblack}
+\vspace{\baselineskip}
+\mbox{}
+
+\end{document}
