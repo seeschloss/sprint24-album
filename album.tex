@@ -70,20 +70,7 @@
 
 % Deuxième de couverture (vide)
 \newpage
-\pagecolor{white}
-\vspace{\baselineskip}
-\mbox{}
-
-% Quatrième de couverture
-\newpage
 \pagecolor{pitchblack}
-\vspace*{\stretch{1}}
-\begin{center}{\huge \BackCoverTitle}
-\end{center}
-
-% Troisième de couverture (vide)
-\newpage
-\pagecolor{white}
 \vspace{\baselineskip}
 \mbox{}
 
@@ -94,10 +81,18 @@
 % Images latex
 \input{photos.tex}
 
-% dernière page (vide)
+% Troisième de couverture (vide)
 \newpage
 \pagecolor{pitchblack}
 \vspace{\baselineskip}
 \mbox{}
+
+% Quatrième de couverture
+\newpage
+\pagecolor{pitchblack}
+\vspace*{\stretch{1}}
+\begin{center}{\huge \BackCoverTitle}
+\end{center}
+
 
 \end{document}
